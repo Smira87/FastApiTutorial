@@ -1,11 +1,11 @@
 from sqlalchemy import MetaData, Table, Column, TIMESTAMP, Integer, String, ForeignKey, JSON
 from datetime import datetime
 
-metaData = MetaData()
+metadata = MetaData()
 
 roles = Table(
     "roles",
-    metaData,
+    metadata,
     Column("id", Integer, primary_key=True),
     Column("name", String, nullable=False),
     Column("permissions", JSON),
@@ -13,7 +13,7 @@ roles = Table(
 
 users = Table(
     "users",
-    metaData,
+    metadata,
     Column("id", Integer, primary_key=True),
     Column("email", String),
     Column("usernam", String, nullable=False),
