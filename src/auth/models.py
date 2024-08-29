@@ -2,6 +2,7 @@ from sqlalchemy import MetaData, Table, Column, Boolean, TIMESTAMP, Integer, Str
 from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTable
 from datetime import datetime
 from database import Base
+
 metadata = MetaData()
 
 role = Table(
