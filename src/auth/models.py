@@ -1,6 +1,9 @@
-from sqlalchemy import MetaData, Table, Column, Boolean, TIMESTAMP, Integer, String, ForeignKey, JSON
-from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTable
+
 from datetime import datetime
+
+from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTable
+from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, ForeignKey, JSON, Boolean, MetaData
+
 from database import Base
 
 metadata = MetaData()
@@ -17,7 +20,7 @@ user = Table(
     "user",
     metadata,
     Column("id", Integer, primary_key=True),
-    Column("email", String),
+    Column("email", String, nullable=False),
     Column("username", String, nullable=False),
     Column("registered_at", TIMESTAMP, default=datetime.utcnow),
     Column("role_id", Integer, ForeignKey(role.c.id)),

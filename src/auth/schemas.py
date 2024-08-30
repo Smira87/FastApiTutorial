@@ -1,11 +1,8 @@
-#import uuid
 from typing import Optional
 
 from fastapi_users import schemas
 
-
 class UserRead(schemas.BaseUser[int]):
-    """Base User model."""
     id: int
     email: str
     username: str
@@ -17,6 +14,7 @@ class UserRead(schemas.BaseUser[int]):
     class Config:
         orm_mode = True
 
+
 class UserCreate(schemas.BaseUserCreate):
     username: str
     email: str
@@ -25,7 +23,3 @@ class UserCreate(schemas.BaseUserCreate):
     is_active: Optional[bool] = True
     is_superuser: Optional[bool] = False
     is_verified: Optional[bool] = False
-
-
-class UserUpdate(schemas.BaseUserUpdate):
-    pass
